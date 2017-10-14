@@ -78,10 +78,11 @@ function _addUnit(val, unit) {
 	unit = unit || 'px';
 	return val && /^-?\d+(?:\.\d+)?$/.test(val) ? val + unit : val;
 }
-
+/*change _removeUnit method which can be use for float value*/
 function _removeUnit(val) {
 	var match;
-	return val && (match = /(\d+)/.exec(val)) ? parseInt(match[1], 10) : 0;
+// 	return val && (match = /(\d+)/.exec(val)) ? parseInt(match[1], 10) : 0;
+	return val && (match = /(\d+)(\.\d+)?/.exec(val)) ? parseFloat(match[0]) : 0;
 }
 
 function _escape(val) {
